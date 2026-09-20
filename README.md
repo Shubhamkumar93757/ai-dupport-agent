@@ -101,5 +101,3 @@ result = handle_message("My iPhone battery dies in 2 hours after the iOS update!
 - **Intent derivation**: KMeans clustering on embeddings + keyword-based auto-naming.
 - **Escalation**: Two layers — deterministic safety/confidence rules first, then an LLM
   judge that actively looks for problems with the draft.
-# ai-dupport-agent
-An end-to-end AI customer support agent that handles incoming messages by classifying user intent, retrieving similar past resolutions from a vector database, generating grounded replies, and dynamically deciding between auto-handling and human escalation.
