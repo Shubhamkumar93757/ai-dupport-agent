@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Support Agent Dashboard — RAG-based customer support for AppleSupport">
+  <title>AI Support Agent — Dashboard</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🤖</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ── Header ──────────────────────────────────────── -->
+    <header class="app-header">
+      <div class="app-header__brand">
+        <div class="app-header__icon">🤖</div>
+        <div>
+          <div class="app-header__title">AI Support Agent</div>
+          <div class="app-header__subtitle">AppleSupport · RAG Pipeline</div>
+        </div>
+      </div>
+      <div class="app-header__status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connecting...</span>
+      </div>
+    </header>
+
+    <!-- ── Tab Navigation ──────────────────────────────── -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="pipeline" id="tabPipeline">
+        ⚡ Pipeline
+      </button>
+      <button class="tab-btn" data-tab="evaluations" id="tabEvaluations">
+        📊 Evaluations
+      </button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- ── PIPELINE TAB ─────────────────────────────────── -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="tab-content active" id="pipelineTab">
+
+      <!-- Input Section -->
+      <div class="input-section">
+        <label class="input-section__label">Customer Message</label>
+        <div class="input-group">
+          <textarea
+            id="messageInput"
+            placeholder="Paste or type a customer support message here..."
+            rows="3"
+          ></textarea>
+          <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeMessage()">
+            ⚡ Analyze
+          </button>
+        </div>
+      </div>
+
+      <!-- Pipeline Step Indicator -->
+      <div class="pipeline-steps" id="pipelineSteps" style="display: none;">
+        <div class="pipeline-step" id="step1" data-step="1">
+          <span>①</span> Classify
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step" id="step2" data-step="2">
+          <span>②</span> Retrieve
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step" id="step3" data-step="3">
+          <span>③</span> Generate
+        </div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-step" id="step4" data-step="4">
+          <span>④</span> Decide
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-overlay" id="pipelineLoading">
+        <div class="spinner"></div>
+        <div class="loading-text">
+          Running the 4-stage pipeline...<br>
+          <span class="loading-step" id="loadingStep">Classifying intent...</span>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-container" id="pipelineResults">
+
+        <!-- Top row: Intent + Retrieval -->
+        <div class="results-grid">
+
+          <!-- Intent Classification Card -->
+          <div class="card">
+            <div class="card__header">
+              <div class="card__title">
+                <span class="card__title-icon">🔍</span>
+                Intent Classification
+              </div>
+              <span class="card__badge badge-completed" id="intentBadge">COMPLETED</span>
+            </div>
+            <div class="intent-list" id="intentList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Semantic Retrieval Card -->
+          <div class="card">
+            <div class="card__header">
+              <div class="card__title">
+                <span class="card__title-icon">📚</span>
+                Semantic Retrieval
+              </div>
+              <span class="card__badge badge-completed" id="retrievalBadge">
+                <span id="retrievalCount">0</span> cases
+              </span>
+            </div>
+            <div class="case-list" id="caseList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Draft Reply Section -->
+        <div class="card draft-section">
+          <div class="card__header">
+            <div class="card__title">
+              <span class="card__title-icon">✍️</span>
+              Draft Reply
+            </div>
+            <span class="card__badge badge-pending" id="draftBadge">EDITABLE</span>
+          </div>
+
+          <textarea class="draft-textarea" id="draftReply" placeholder="Draft reply will appear here..."></textarea>
+
+          <!-- Escalation Banner -->
+          <div class="escalation-banner" id="escalationBanner" style="display: none;">
+            <span class="escalation-banner__icon" id="escalationIcon"></span>
+            <div>
+              <div class="escalation-banner__label" id="escalationLabel"></div>
+              <div class="escalation-banner__text" id="escalationReason"></div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="draft-actions">
+            <button class="btn btn-ghost" id="regenerateBtn" onclick="analyzeMessage()" disabled>
+              🔄 Re-generate
+            </button>
+            <button class="btn btn-danger" id="escalateBtn" onclick="handleEscalate()" disabled>
+              🚨 Escalate
+            </button>
+            <button class="btn btn-success" id="approveBtn" onclick="handleApprove()" disabled>
+              ✅ Approve & Send
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-state__icon">💬</div>
+        <div class="empty-state__text">
+          Enter a customer support message above and click <strong>Analyze</strong><br>
+          to run it through the 4-stage AI pipeline.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- ── EVALUATIONS TAB ──────────────────────────────── -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="tab-content" id="evaluationsTab">
+
+      <!-- Controls -->
+      <div class="input-section">
+        <label class="input-section__label">Batch Evaluation</label>
+        <div class="eval-controls">
+          <label for="sampleCount">Samples:</label>
+          <select id="sampleCount">
+            <option value="3">3</option>
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+          </select>
+          <button class="btn btn-primary" id="evalBtn" onclick="runEvaluation()">
+            ▶ Run Evaluation
+          </button>
+          <span class="text-sm text-muted" id="evalWarning">
+            ⚠️ Takes ~60s for 5 samples (Gemini rate limits)
+          </span>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-overlay" id="evalLoading">
+        <div class="spinner"></div>
+        <div class="loading-text">
+          Running batch evaluation...<br>
+          <span class="loading-step">This may take a few minutes due to API rate limits.</span>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="eval-summary" id="evalSummary" style="display: none;">
+        <div class="eval-stat">
+          <div class="eval-stat__value" id="avgScore">—</div>
+          <div class="eval-stat__label">Average Score</div>
+        </div>
+        <div class="eval-stat">
+          <div class="eval-stat__value" id="totalCases">—</div>
+          <div class="eval-stat__label">Total Cases</div>
+        </div>
+        <div class="eval-stat">
+          <div class="eval-stat__value" id="successCases">—</div>
+          <div class="eval-stat__label">Successful</div>
+        </div>
+      </div>
+
+      <!-- Evaluation Results -->
+      <div id="evalResults">
+        <div class="empty-state" id="evalEmptyState">
+          <div class="empty-state__icon">📊</div>
+          <div class="empty-state__text">
+            Run a batch evaluation to compare AI-generated replies<br>
+            against real historical brand responses.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

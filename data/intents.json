@@ -1,0 +1,98 @@
+{
+  "software_update_issues": {
+    "definition": "Problems caused by iOS or macOS software updates",
+    "examples": [
+      "Not the biggest problem, but how on EARTH is it taking you this long to fix the stupid \u201cI\ufe0f\u201d glitch? | Yes I\u2019ve seen that but I\ufe0f don\u2019t know why you haven\u2019t released the update yet. It\u2019s frustrating and silly. Apple is supposed to be better",
+      "when are you going to fix this? Please fix this ASAP! | NO. FIX IT NOW APPLE WTF.",
+      "I\u2019m going to mention everyday until they fix this \u2018I\u2019 glitch. Either update the system or recall all new devices cause this is ugly.",
+      "why is this happening? | \u201cWe don\u2019t have a solution at this time, but recommend that you keep your device up-to-date using Software Update.\u201d | We tried that a few weeks ago.",
+      "This new update is messing with my , you better get your shit together or I\u2019m out!! | It seems to be glitching, pausing, not connecting to wifi properly and also had to reset up my email account a couple times."
+    ],
+    "cluster_id": 0,
+    "size": 10194
+  },
+  "app_and_store_issues": {
+    "definition": "Issues with App Store, iTunes, app downloads, or Apple Music",
+    "examples": [
+      "I was promised a receipt for a purchase and have not received it. No one answers the phone at Apple (tried several numbers)",
+      "I was told to go to another vendor. Am I suppose to go to for iPhone issue? | Still waiting for some action | you should have few messages from me.",
+      "wow - Apple app sent me to store to enroll, Apple store sent me away. Didn\u2019t expect a phone, did expect to order :-/",
+      "Also thanks for having terrible customer service in the baton rouge store, and causing me to spend 4+ hours of my day in and driving to and from the apple store, just to get a brand new phone that STILL does not work. (and I have to go again to a store now) thanks",
+      "had for 3 days and this message comes up, telling me to take phone to Apple store to resolve. Wtf?"
+    ],
+    "cluster_id": 1,
+    "size": 11054
+  },
+  "general_help_request": {
+    "definition": "General requests for help or troubleshooting guidance",
+    "examples": [
+      "Ever since I updated my phone my apple music don\u2019t work. Wtf is the problem",
+      "why isn\u2019t my Apple Music working?? It\u2019s been glitching for 3 damn days now! Why do I pay for this shit??! | Still having the issue so replying to this thread albeit late. It doesn\u2019t add music to my library when I\u2019ve asked it too, it keeps freezing and won\u2019t let me click anything and when I close my app it just opens back up to the glitch?? Sick of it now. It\u2019s ridiculous. | It\u2019s iOS 11.2",
+      "my Apple Music hasn\u2019t worked since I got the newest update...what\u2019s goin on",
+      "why does the music on my iPhone stop out of nowhere. Didn\u2019t do it before the recent updates.",
+      "Hello, I have a huge problem!!!! Many of the songs that I mostly listen don\u2019t work anymore on Apple Music, it\u2019s very upsetting | just did"
+    ],
+    "cluster_id": 2,
+    "size": 5097
+  },
+  "performance_issues": {
+    "definition": "Device running slow, freezing, crashing, or apps not loading",
+    "examples": [
+      "Yo, what\u2019s up with iOS 11? It is super clunky and freezes. You guys took a step backwards with this update. This phone hardly works.",
+      "iOS 11 has fucked my phone to oblivion. My phone freezes and crashes 5 times a day. Wtf | Same!! I did the update that\u2019s supposed to \u201cfix the bugs\u201d and it still messes up \ud83d\ude21",
+      "I have the latest iOS and it\u2019s making my phone buggy, fix it | Come on Apple why not tell the truth that iOS 11-11.0.3 is a fail and you are aware of the problems and people have to wait for the fix",
+      "Dear , what the hell is happening on iOS 11? I even upgraded it to it\u2019s latest version(11.0.2) but it became worse! Pls fix this!",
+      "iOS 11.0.3 Problems Problems Problems!\ud83d\udcf17 Plus crap after update!Provide fix! Crash&drain bugs to use phone normally."
+    ],
+    "cluster_id": 3,
+    "size": 11461
+  },
+  "battery_and_power": {
+    "definition": "Issues with battery life, charging, or power drain after updates",
+    "examples": [
+      "can y\u2019all fix this I\ufe0f \ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f",
+      "CAN YAL PLEASE FIX THIS SHIT I\ufe0f <\u2014 PLEASE \ud83d\ude12\ud83d\ude12\ud83d\ude12\ud83d\ude12",
+      "I\ufe0f What is this??? FIX IT \ud83d\ude2b\ud83d\ude2b\ud83d\ude2b",
+      "can y\u2019all fix this!!??!?? >>>> I\ufe0f",
+      "y\u2019all needa get this \u201c i \u201c shit fixed, ME tired of having to txt like this and ME dont like it and ME want answers | damn this is good customer service ngl"
+    ],
+    "cluster_id": 4,
+    "size": 8373
+  },
+  "connectivity_issues": {
+    "definition": "Problems with WiFi, Bluetooth, cellular, or network connectivity",
+    "examples": [
+      "yooooooo every time I\ufe0f try to put the letter \u201cI\ufe0f\u201d it changes to some weird crap (as you can see) fix this now.",
+      "how come everytime I\ufe0f type an \u201cI\u201d it pops up as a weird symbol y\u2019all gotta fix this | Like look at it",
+      "what is this glitch with the letter \u201cI\u201d it keeps making me type I\ufe0f \ud83d\ude14",
+      "needs to fix this little \u201cI\ufe0f\u201d situation every time i try to type the letter \u201ci\u201d",
+      "It is driving me insane that I\ufe0f can\u2019t type \u201cI\ufe0f\u201d. See how annoying that is. FIX IT"
+    ],
+    "cluster_id": 5,
+    "size": 8085
+  },
+  "hardware_and_display": {
+    "definition": "Hardware-related issues: screen, touch, camera, Face ID, keyboard",
+    "examples": [
+      "This update has caused the MOST problems with my iPhone! \ud83d\ude24 I\u2019m not getting a new phone so stop it!!!",
+      "The new iOS update has my phone fucked up, Thanks",
+      "Ever since I\u2019ve updated my iOS my phone has done nothing but freeze\ud83e\udd26\ud83c\udffe\u200d\u2642\ufe0f get it together. This is a brand new phone too no excuses",
+      "phones are a joke, done the newest iOS update and it\u2019s completely messed up my iphone, constantly freezing and dying!",
+      "Hey any chance of a new iPhone update, this last one has fucked my phone up!!!!!"
+    ],
+    "cluster_id": 6,
+    "size": 14975
+  },
+  "account_and_security": {
+    "definition": "Apple ID, iCloud, password, login, or account lockout issues",
+    "examples": [
+      "The latest iPhone update has ruined my battery life. Sort it out",
+      "IOS 11 has ruined battery life on IPhones! Fix this \ud83d\udca9\u2757\ufe0f",
+      "could u please explain to why the new iOS update drains my battery so severely? Losing 1% a minute. Do you even vet for older phones?",
+      "iOS 11 -> crap, battery life is bleeding, 1h of use -> from 100% to 15% on iPhone 6s Do something !!!",
+      "iPhone 7. iOS 11.0.3 is killing my battery life. Down to 20% in 2 hours."
+    ],
+    "cluster_id": 7,
+    "size": 6660
+  }
+}
